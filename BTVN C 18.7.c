@@ -20,6 +20,7 @@ int main() {
     int found = 0;
     printf("Nhap ten sinh vien can xoa: ");
     fgets(nameToDelete, 50, stdin);
+    nameToDelete[strcspn(nameToDelete, "\n")] = '\0';
     for (int i = 0; i < numOfStudents; i++) {
         if (strcmp(sv[i].name, nameToDelete) == 0) {
             found = 1;
