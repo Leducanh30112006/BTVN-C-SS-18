@@ -7,6 +7,7 @@ struct SinhVien {
     int age;
     char phoneNumber[20];
 };
+
 int main() {
     struct SinhVien sv[50] = {
         {1, "Le Duc Anh", 18, "0974935754"},
@@ -24,6 +25,7 @@ int main() {
             found = 1;
             printf("Nhap ten moi cho sinh vien: ");
             fgets(sv[i].name, 50, stdin);
+            sv[i].name[strcspn(sv[i].name, "\n")] = '\0';
             printf("Nhap tuoi moi cho sinh vien: ");
             scanf("%d", &sv[i].age);
             getchar();
@@ -36,7 +38,7 @@ int main() {
     }
     printf("Thong tin cac sinh vien sau khi chinh sua:\n");
     for (int i = 0; i < 5; i++) {
-        printf("Sinh vien thu %d:\n", sv[i].id);
+        printf("Sinh vien thu %d:\n", i + 1);
         printf("ID: %d\n", sv[i].id);
         printf("Ten: %s\n", sv[i].name);
         printf("Tuoi: %d\n", sv[i].age);
@@ -46,4 +48,3 @@ int main() {
 
     return 0;
 }
-
